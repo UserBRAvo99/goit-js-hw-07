@@ -21,10 +21,13 @@ const makeGallary = galleryItems
 getGallatyEl.insertAdjacentHTML("beforeend", makeGallary);
 
 getGallatyEl.addEventListener("click", (event) => {
+  //прибираємо відкривання нового вікна у посилань
   event.preventDefault();
+  //перевіряємо клік по картинці(інверсія)
   if (!event.target.closest(".gallery__image")) {
     return;
   }
+  //додаємо basicLightbox
   const instance = basicLightbox.create(`
       <img src="${event.target.dataset.source}" width="800" height="600">
   `);
