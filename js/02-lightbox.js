@@ -2,7 +2,7 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const galleryListEl = document.querySelector(".gallery");
-
+//Перебираємо об'єкт galleryItems та рендеромо розмітку
 const makeGallaryList = galleryItems
   .map((item) => {
     console.log(item.original);
@@ -11,9 +11,13 @@ const makeGallaryList = galleryItems
 </a>`;
   })
   .join("");
+//додаємо розмітку до потрібного батьківського тега
+//уважно обираємо insertAdjacentHTML("beforeend" -- куди саме будемо рендирити розмітку, makeGallaryList)
 galleryListEl.insertAdjacentHTML("beforeend", makeGallaryList);
-
+//Додаємо розмітку (читати документацію SimpleLightbox)
+//данний варіант не потребує слухача, просто додаємо потрібний код(заздалегіть під'єднаний через посилання в хедері та боді)
 const lightbox = new SimpleLightbox(".gallery a", {
+  //тут прописуємо потрібні доп опції (набір опцій та їх властивості, описані в документації)
   captionsData: "alt",
   captionDelay: 250,
   captionPosition: "bottom",

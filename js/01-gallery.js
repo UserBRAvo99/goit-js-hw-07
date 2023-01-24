@@ -36,11 +36,14 @@ getGallatyEl.addEventListener("click", (event) => {
   //перевіряємо чи модальне вікно відкрите
   if (visible) {
     //додаємо слухача на кнопку
+    //на відміну від другого варіанту, тут ми використовуємо слухач
     document.addEventListener("keydown", (event) => {
       console.dir(event.key);
+      //перевірка на натискання потрібної кнопки
       if (event.key === "Escape") {
         //закриваємо вікно при натисканні "Escape"
         instance.close();
+        //знімаємо слухача з клавіатури, після закінчення роботи
         document.removeEventListener("keydown", event);
       }
     });
